@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Fast</title>
+  <link rel="stylesheet" href="./travel_recommendation.css">
+</head>
+
+  <style>
+    body {
+      background-image: url('pexels-pixabay-533851.jpg');
+      background-size:100%;
+      
+      
+    }
+    </style>
+   <nav>
+    <img src="./Images/plane.png" height="60px" margin="0px">
+    <h1>Travel Fast</h1>
+<ul>
+  <li><a href="./index.html" id="home">Home </a></li>
+  
+  <li><a href="./about_us.html" id="aboutus">About Us </a></li> 
+  <li><a href="./travel_recommendation_contact.html" id="contact">Contact Us </a></li>
+  
+
+  <li><input type="text" id="destination" placeholder="Enter a destination or keyword">  </li>
+  <button class="search-btn" onclick="searchDestinations()">Search</button>
+  <button class="reset-btn" onclick="resetSearch()">Clear</button>
+  
+
+
+</ul>
+</nav>
+<div><h2>
+  <br>SET FOOT TO EXPLORE </br>
+    WHAT YOU LOVE</h2>
+    
+  
+    <p>Discover your next adventure with Travel Fast. We're here to help you</p>
+    <p>find the perfect destination, tailored to your unique interests and</p>  
+    <p>budget. Whether you're dreaming of a relaxing beach getaway,</p> 
+    <p>a thrilling city exploration, or a cultural immersion, </p>
+    <p>our curated recommendations will inspire and guide you.</p> 
+    <p>Let us be your trusted companion on your journey of discovery.</p>
+  
+    <button id='booknow'> BOOK NOW</button>
+  </div>
+  <img src="pngwing.com.png" height="50px" id="socialmedia">
+
+  <div id="search-results-overlay" class="search-results-overlay">
+    <div id="search-results"></div>
+</div>
+  </div>
+<script src="./travel_recommendation.js"></script>
+</body>
+</html>

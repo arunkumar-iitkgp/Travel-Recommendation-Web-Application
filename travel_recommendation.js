@@ -1,51 +1,104 @@
-const btnSearch = document.getElementById('btnSearch');
-const btnClear = document.getElementById('btnClear');
+async function fetchDestinations() {
+    const response = await fetch('travel_recommendation_api.json');
+    const data = await response.json();
+    return data;
+}
 
-function searchCondition() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const resultDiv = document.getElementById('resultsContainer');
-    resultDiv.innerHTML = '';
+function searchDestinations() {
+    const searchInput = document.getElementById('destination').value.toLowerCase();
+    const searchResultsOverlay = document.getElementById('search-results-overlay');
+    const searchResults = document.getElementById('search-results');
 
-    fetch('travel_recommendation_api.json')
-        .then(response => response.json())
-        .then(data => {
-            // Logic for Country search
-            const country = data.countries.find(item => item.name.toLowerCase() === input);
-            if (country) {
-                country.cities.forEach(city => {
-                    displayResult(city);
-                });
-            } 
-            // Logic for Temple/Beach search
-            else if (data[input]) {
-                data[input].forEach(item => {
-                    displayResult(item);
+    fetchDestinations().then(data => {
+        const allItems = [...data.countries, ...data.temples, ...data.beaches];
+        const filteredResults = [];
+
+        
+
+        allItems.forEach(category => {
+            if (category.cities) {
+                category.cities.forEach(city => {
+                    if (city.name.toLowerCase().includes(searchInput)) {
+                        filteredResults.push({
+                            name: city.name,
+                            imageUrl: city.imageUrl,
+                            description: city.description
+                        });
+                    }
                 });
             } else {
-                resultDiv.innerHTML = 'Keyword not found. Please try "beach", "temple", or a country name.';
+                if (category.name.toLowerCase().includes(searchInput)) {
+                    filteredResults.push({
+                        name: category.name,
+                        imageUrl: category.imageUrl,
+                        description: category.description
+                    });
+                }
             }
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
         });
+
+        // Clear previous results
+        searchResults.innerHTML = '';
+
+        // Display results
+        if (filteredResults.length > 0) {
+            filteredResults.forEach(item => {
+                const resultItem = document.createElement('div');
+                resultItem.classList.add('result-item');
+                resultItem.innerHTML = `
+                    <img src="${item.imageUrl}" alt="${item.name}">
+                    <div class="footer_container">
+                        <h4>${item.name}</h4>
+                        <p>${item.description}</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                `;
+                searchResults.appendChild(resultItem);
+            });
+            searchResultsOverlay.style.display = 'block';
+        } else {
+            searchResults.innerHTML = '<p>No destinations found</p>';
+            searchResultsOverlay.style.display = 'block';
+        }
+    });
 }
 
-function displayResult(item) {
-    const resultDiv = document.getElementById('resultsContainer');
-    resultDiv.innerHTML += `
-        <div class="result-card">
-            <img src="${item.imageUrl}" alt="${item.name}">
-            <h2>${item.name}</h2>
-            <p>${item.description}</p>
-            <button>Visit</button>
-        </div>
-    `;
+
+
+const keywords = {
+  beaches: ['beach', 'beaches'],
+  temples: ['temple', 'temples'],
+  countries: ['country', 'countries']
+};
+
+searchButton.addEventListener('click', () => {
+  const searchTerm = destination.value.toLowerCase();
+
+  let foundKeywords = [];
+  for (const keyword in keywords) {
+    if (keywords[keyword].includes(searchTerm)) {
+      foundKeywords.push(keyword);
+    }
+  }
+
+  searchResults.innerHTML = `<h2>Search Results for "${searchTerm}":</h2>`;
+  if (foundKeywords.length > 0) {
+    searchResults.innerHTML += `<ul>`;
+    for (const keyword of foundKeywords) {
+      searchResults.innerHTML += `<li>${keyword}</li>`;
+    }
+    searchResults.innerHTML += `</ul>`;
+  } else {
+    searchResults.innerHTML += `<p>No results found.</p>`;
+  }
+});
+
+function resetSearch() {
+    document.getElementById('destination').value = '';
+    document.getElementById('search-results').innerHTML = '';
+    document.getElementById('search-results-overlay').style.display = 'none';
 }
 
-btnSearch.addEventListener('click', searchCondition);
-function clearSearch() {
-    document.getElementById('searchInput').value = '';
-    document.getElementById('resultsContainer').innerHTML = '';
-}
-
-btnClear.addEventListener('click', clearSearch);
+const options = { timeZone: 'Australia/Sydney', hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' };
+const sydneyTime = new Date().toLocaleTimeString('en-US', options);
+console.log("Current time in Sydney:", sydneyTime);
