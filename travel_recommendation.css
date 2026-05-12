@@ -5,7 +5,7 @@
     
 }
 nav {
-    background-color: #bde1fb;
+    background-color: #e4e818;
     padding: 10px 20px;
     align-items: center;
     justify-content: space-between;
@@ -49,13 +49,13 @@ nav {
     margin-right:30px ;
     display: inline;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: rgba(58, 109, 174, 0.886);
+    color: rgba(209, 43, 28, 0.886);
     font-size:40px
   }
   
   h2{
     font-size: 50px;
-    color:rgba(116, 117, 118, 0.886);
+    color:rgba(224, 93, 12, 0.886);
 
     padding-top: 100px;
     padding-left: 80px;
@@ -64,7 +64,7 @@ nav {
 
   p{
     font-size: 23px;
-    color:rgba(155, 155, 228, 0.886);
+    color:rgba(177, 99, 20, 0.886);
     font-weight: bold;
     margin-left:200px ;
     margin-right:200px;
