@@ -1,54 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Travel</title>
-  <link rel="stylesheet" href="./travel_recommendation.css">
+    <title>Travel Bloom Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
-  <style>
-    body {
-      background-image: url('pexels-pixabay-533851.jpg');
-      background-size:100%;
-      
-      
-    }
-    </style>
-   <nav>
-    <img src="plane_1.png" height="60px">
-    <h1>Travel</h1>
-<ul>
-  <li><a href="./index.html" id="home">Home </a></li>
-  
-  <li><a href="./about_us.html" id="aboutus">About Us </a></li>
-  <li><a href="./travel_recommendation_contact.html" id="contact">Contact Us </a></li>
-
-
-</ul>
-</nav>
-<h2>ABOUT US</h2>
-
-<p>Welcome to Our Company! We are a team of passionate individuals dedicated to providing excellent services/products to our customers. Our mission is to provide the best experience for people traveling to different destinations around the world. Our values include integrity, innovation, customer satisfaction, and teamwork. We believe in putting our customers first and working together to achieve our goals. Feel free to explore our website to learn more about what we offer!</p>
-
-<div>
-<h3>Our Team</h3>
-<div class="container">
-    <div class="box">
-        <h4> John Doe</h4>
-        John is responsible for overseeing the operation of the company.<br>
-                <button>CEO</button>
+<body>
+    <div class="navbar">
+        <div class="navbar">
+            <i class="fa fa-plane" id="nav-icon"></i>
+            <h2 id="app-name">Travel Bloom</h2>
+        </div>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+        <div class="navbar-about-us"></div>
     </div>
-    <div class="box">
-        <h4> Sirus Smith</h4>
-        Sirus is the head of Projects Management.<br>
-        <button>Team Leader</button>
+    <div class="main-page">
+        <div class="social-media-main">
+            <div class="vertical-line">
+            </div>
+            <div class="social-media-section">
+                <i class="fa fa-twitter social-media-btn"></i>
+                <i class="fa fa-facebook social-media-btn"></i>
+                <i class="fa fa-instagram social-media-btn"></i>
+                <i class="fa fa-youtube social-media-btn"></i>
+            </div>
+        </div>
+        <div class="about-us">
+            <h1 id="intro-title">ABOUT US</h1>
+            <p id="about-us-desc">Welcome to Our Company! We are a team of passionate individuals dedicated to providing excellent services/products to our customers. Our mission is to
+                <b>provide the best experience</b> for people traveling to different destinations around the world.
+                Our values include integrity, innovation, customer satisfaction. and teamwork. We believe in <b>putting our customer first and working together</b> to achieve<br>
+                our goals. Feel free to explore our website to learn more about what offer!</p>
+            <div class="team-details">
+                <h1 id="team-title">Our<br>Team</h1>
+               <div class="team-details-desc">
+                <div class="team-card">
+                    <i class='fa fa-user-o'></i>
+                    <h2>Krishna</h2>
+                    <p>
+                        Krishna is responsible for...
+                    </p>
+                    <button>CEO</button>
+                </div>
+                <div class="team-card">
+                    <i class='fa fa-user-o'></i>
+                    <h2>Jay</h2>
+                    <p>
+                        Jay is responsible for...
+                    </p>
+                    <button>Manager</button>
+                </div>
+                <div class="team-card">
+                    <i class='fa fa-user-o'></i>
+                    <h2>BK</h2>
+                    <p>
+                        BK is responsible for...
+                    </p>
+                    <button>Developer</button>
+                </div>
+               </div>
+            </div>
+        </div>
     </div>
-    <div class="box">
-        <h4>Michael Johnson</h4>
-        Michael looks at the geographical reach of the business.<br>
-        <button>Region Head</button>
-    </div>
-
-</div>
-
-<img src="social.jpeg" height="200px" id="socialmedia">
+    <script src="travel_recommendation.js"></script>
+</body>
+</html>

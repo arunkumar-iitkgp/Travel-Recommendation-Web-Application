@@ -1,263 +1,296 @@
-*{
+body, html {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    height: 100%;
 }
-nav {
-    background-color: #e4e818;
-    padding: 10px 20px;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 2px; 
-        
-  }
-  
-  nav ul {
-    list-style-type:none;
-    display: inline;
-    /* padding: 0; */
-  }
-  
-  nav ul li {
-    display: inline;
-    flex-direction: row;
-    margin-right: 10px;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display:inline;
-    margin-left:90px;
-    text-align: center;
-    font-size: 20px;
-  
-  }
-  
-  
-  body {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    /* margin: 20px; */
-  }
-  
-  h1 {
-    margin-bottom: 0px;
-    margin-left: 10px ;
-    margin-right:30px ;
-    display: inline;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: rgba(209, 43, 28, 0.886);
-    font-size:40px
-  }
-  
-  h2{
-    font-size: 50px;
-    color:rgba(224, 93, 12, 0.886);
 
-    padding-top: 100px;
-    padding-left: 80px;
-    padding-bottom: 30px;
-  }
-
-  p{
-    font-size: 23px;
-    color:rgba(177, 99, 20, 0.886);
-    font-weight: bold;
-    margin-left:200px ;
-    margin-right:200px;
-    text-align: justify;
- 
-  
-  }
-
-  #socialmedia{
-
-    margin-top: 90px;
-    margin-left: 80px;
-    margin-bottom: 30px;
-  }
-
-  #booknow{
-    margin-top: 40px;
-    margin-left: 200px;
-    padding: 7px 15px;
-    background-color: rgba(44, 83, 141, 0.886);
+.navbar {
+    background-color: black;
     color: white;
-    font-weight: bolder;
-    font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    border:none;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 200px;
-
-  
-  }
- 
-    
-  h3{
-
-  color: rgba(44, 83, 141, 0.886);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: bolder;
-  font-size:50px;
-  margin-bottom: 3px;
-  margin-top: 45px;
-  margin-left: 80px;
-  }
-  label {
-    display: inline-block;
-  
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 250px;
-    padding: 5px;
-    border-radius: 10cap;
-    margin-left: 220px;
-  }
-  
-  button {
-    padding: 7px 15px;
-    background-color: #0b0fcd;
-    color: white;
-    border:none;
-    cursor: pointer;
-    border-radius: 10cap;
-  }
-  
-  button:hover {
-    background-color: #4c2bb0;
-  }
-  
-  .container {
+    overflow: hidden;
     display: flex;
-    justify-content:space-around;
-}
-
-.box {
-    width: 300px;
-    height: 200px;
-    background-color: rgba(248, 173, 173, 0.6); /* Adjust opacity as needed */
-    border-radius: 10px;
-    padding: 30px;
-    color: white;
-    text-align: center;
-    
-  
-}
-
-.box h4 {
-    margin-bottom: 10px;
-    font-weight: bolder;
-    font-size: 20px;
-}
-
-.box button {
-    background-color: #39c6f0;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    width:200px;
-}
-
-
-
-
- 
-
-  .contact{
-    margin-left: 500px;
-    font-size: 20px;
-    font-weight: bold;
-    #Name {
-      margin-top: 10px;
-      margin-left: 10px;
-      width:500px;
-      
-    }
-    #email{
-      margin-top: 10px;
-      margin-left: 10px; 
-      width:500px;
-    }
-    #message{
-      margin-top: 10px;
-      margin-left: 10px; 
-      width:500px;
-      border-radius: 1cap;
-    }
-     button{
-      margin-top: 10px;
-      margin-left: 10px; 
-      width:500px;
-      border-radius: 1cap;
-      background-color: #39c6f0;
-
-     }
-  }
- 
-
-  .search-results-overlay {
-    position: absolute;
-    top: 100px; /* Adjust as needed */
-    right: 20px;
-    width: 400px; /* Fixed width for the overlay */
-    background-color: white;
-    border: 0px solid #ccc;
-    max-height: 420px; /* Adjust height as needed */
-    overflow-y: auto;
-    z-index: 1000;
-    display: none; /* Hidden by default */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-
-.search-results-overlay .result-item .footer_container {
-    padding: 10px;
-}
-
-.search-results-overlay .result-item {
-    display: block;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-.search-results-overlay .result-item img {
-    width: 100%;
+    justify-content: space-between;
     height: auto;
-    object-fit: cover;
+    width: auto;
 }
 
-.search-results-overlay .result-item h4 {
-    margin: 10px 0 5px;
-    font-size: 24px;
+.navbar-about-us {
+    margin-left: 472px;
+}
+
+.navbar a {
+    text-decoration: none;
+    margin: 30px; 
+    color: white;
     font-weight: bold;
 }
 
-.search-results-overlay .result-item p {
-    margin: 0 0 10px;
-    font-size: 16px;
-    color: #555;
+#app-name {
+    margin: 20px;
+    font-style: italic;
 }
 
-.search-results-overlay .result-item .btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #ff5733;
+.nav-input {
+    padding: 5px;
+    width: 300px;
+    height: 30px;
+    margin: 5px ;
+    border: 1px solid black;
+    border-radius: 20px ;
+}
+
+.nav-button {
+    padding: 5px 10px;
+    height: 40px;
+    margin: 20px 0px;
+    border-radius: 10px ;
+    color: #00b386;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.nav-button:hover {
     color: white;
-    text-decoration: none;
-    border-radius: 3px;
-    cursor: pointer;
+    background-color: #00b386;
+}
+
+.navbar ::placeholder {
+    color: #00b386;
+    font-weight: bold;
+  }
+
+#nav-icon {
+    font-size: 50px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.nav-right-section {
+    margin-right: 20px;
+}
+
+.nav-right-section i {
+    position: static;
+}
+
+.main-page {
+    min-height: 100vh;
+    min-width: 100vh;
+    background-image: url('assets/bg3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+.page-intro {
+    width: 600px;
+    color: white;
+    font-weight: bolder;
+    padding: 20px;
+    display: block;
+    margin: 70px 150px;
+}
+
+
+#book-now-btn {
+    background-color: #007054;
+    color: white;
+    border-radius: 5px;
+    font-weight: bolder;
+    padding: 10px 30px;
+    border: none;
+    font-size: x-large;
+}
+
+#book-now-btn:hover {
+    color: #00b386;
+    background-color: white;
+}
+
+#intro-title {
+    font-weight: bolder;
+    font-size: 80px;
+}
+
+#intro-desc {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 50px;
+}
+
+.social-media-main {
+    display: block;
+    margin-left: 15px;
+}
+
+.vertical-line {
+    border-left: 2px solid white;
+    height: 300px;
+    margin: 25px;
+}
+
+.social-media-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 45px;
+    margin-top: 100px;
+    color: white;
+}
+
+.social-media-btn {
+    margin: 10px
+}
+
+.about-us {
+    color: white;
+    font-weight: bolder;
+    padding: 20px;
+    display: block;
+    margin: 10px 100px;
+}
+
+#about-us-desc{
+    font-size: 24px;
+    font-weight: normal;
+    background-color: rgba(41, 47, 46, 0.3);
+    padding: 20px;
+}
+
+.team-details{
+    color: white;
+    font-weight: bolder;
+    padding: 20px;
+    display: flex;
+    margin: 10px 100px;
+}
+
+.team-details-desc {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 100px;
+}
+
+#team-title {
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+.team-card{
+    background-color: rgba(41, 47, 46, 0.3);
+    margin: 20px; 
+    padding: 30px;
+    border-radius: 10px;
+
+}
+
+.team-card i {
+    font-size: 40px;
+}
+
+.team-card p {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.team-card button {
+    border-radius: 8px;
+    padding: 10px 60px;
+    color: white;
+    background-color: rgb(19, 19, 126);
+    border: 0.5px solid rgb(2, 185, 246);
+    margin-left: 30px;
+}
+
+.contact-us {
+    color: white;
+    font-weight: bolder;
+    padding: 20px;
+    display: block;
+    margin: 200px 100px;
+}
+
+.contact-us p {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.contact-form {
+    width: 900px;
+    height: 500px;
+    background-color: rgba(41, 47, 46, 0.3);
+    margin: 200px 50px;
+    padding: 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+.contact-form-input {
+    width: 900px;
+    height: 30px;
+    background-color:rgba(0, 0, 0, 0);
+    border: 1px solid rgb(233, 229, 229);
+    border-radius: 5px;
+}
+
+#contact-btn {
+    width: 900px;
+    background-color: #007054;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 30px;
+    border: none;
+    font-size: x-large;
+    margin: 10px 10px 0px 0px;
+}
+
+#contact-btn:hover {
+    color: #00b386;
+    background-color: white;
+}
+
+#contact-msg {
+    height: 200px;
+}
+
+.search-result {
+    width: 650px;
+    margin: 100px;
+}
+
+.search-result img {
+    width: 650px;
+    height: 350px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.search-result h2 {
+    margin: 20px;
+}
+
+.search-result p {
+    margin: 20px;
+    color: rgb(158, 147, 147) ;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.search-result button {
+    margin: 10px 20px;
+    background-color: #007054;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    font-size: medium;
+}
+
+.search-result-element {
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
 }

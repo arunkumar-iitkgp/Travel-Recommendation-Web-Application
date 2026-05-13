@@ -1,104 +1,67 @@
-async function fetchDestinations() {
-    const response = await fetch('travel_recommendation_api.json');
-    const data = await response.json();
-    return data;
-}
+const searchBtnEle = document.getElementById("nav-search-btn");
+const clearBtnEle = document.getElementById("nav-clear-btn");
+const navInputEle = document.getElementById("nav-input-id");
+const bookNowBtn = document.getElementById("book-now-btn");
+const searchResultDiv = document.getElementById("search-result-id");
 
-function searchDestinations() {
-    const searchInput = document.getElementById('destination').value.toLowerCase();
-    const searchResultsOverlay = document.getElementById('search-results-overlay');
-    const searchResults = document.getElementById('search-results');
-
-    fetchDestinations().then(data => {
-        const allItems = [...data.countries, ...data.temples, ...data.beaches];
-        const filteredResults = [];
-
-        
-
-        allItems.forEach(category => {
-            if (category.cities) {
-                category.cities.forEach(city => {
-                    if (city.name.toLowerCase().includes(searchInput)) {
-                        filteredResults.push({
-                            name: city.name,
-                            imageUrl: city.imageUrl,
-                            description: city.description
-                        });
-                    }
-                });
-            } else {
-                if (category.name.toLowerCase().includes(searchInput)) {
-                    filteredResults.push({
-                        name: category.name,
-                        imageUrl: category.imageUrl,
-                        description: category.description
-                    });
-                }
-            }
-        });
-
-        // Clear previous results
-        searchResults.innerHTML = '';
-
-        // Display results
-        if (filteredResults.length > 0) {
-            filteredResults.forEach(item => {
-                const resultItem = document.createElement('div');
-                resultItem.classList.add('result-item');
-                resultItem.innerHTML = `
-                    <img src="${item.imageUrl}" alt="${item.name}">
-                    <div class="footer_container">
-                        <h4>${item.name}</h4>
-                        <p>${item.description}</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                `;
-                searchResults.appendChild(resultItem);
-            });
-            searchResultsOverlay.style.display = 'block';
-        } else {
-            searchResults.innerHTML = '<p>No destinations found</p>';
-            searchResultsOverlay.style.display = 'block';
-        }
-    });
-}
-
-
-
-const keywords = {
-  beaches: ['beach', 'beaches'],
-  temples: ['temple', 'temples'],
-  countries: ['country', 'countries']
-};
-
-searchButton.addEventListener('click', () => {
-  const searchTerm = destination.value.toLowerCase();
-
-  let foundKeywords = [];
-  for (const keyword in keywords) {
-    if (keywords[keyword].includes(searchTerm)) {
-      foundKeywords.push(keyword);
-    }
-  }
-
-  searchResults.innerHTML = `<h2>Search Results for "${searchTerm}":</h2>`;
-  if (foundKeywords.length > 0) {
-    searchResults.innerHTML += `<ul>`;
-    for (const keyword of foundKeywords) {
-      searchResults.innerHTML += `<li>${keyword}</li>`;
-    }
-    searchResults.innerHTML += `</ul>`;
-  } else {
-    searchResults.innerHTML += `<p>No results found.</p>`;
-  }
+searchBtnEle.addEventListener("click", function () {
+    searchDestination(navInputEle.value);
 });
 
-function resetSearch() {
-    document.getElementById('destination').value = '';
-    document.getElementById('search-results').innerHTML = '';
-    document.getElementById('search-results-overlay').style.display = 'none';
+clearBtnEle.addEventListener("click", function () {
+    navInputEle.value = "";
+    searchResultDiv.innerHTML = '';
+});
+
+navInputEle.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        searchDestination(navInputEle.value);
+    }
+  });
+
+function searchDestination(keyword) {
+    let searchResult;
+    fetch("./travel_recommendation_api.json")
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error
+                    (`HTTP error! Status: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then((data) => {
+            console.log(data);
+            for (let key in data) {
+                if (key.includes(keyword.toLowerCase())) {
+                    searchResult = data[key];
+                }
+            }
+            if (!searchResult) {
+                data.countries.forEach(country => {
+                    if (country.name.toLowerCase().includes(keyword.toLowerCase())) {
+                        searchResult = country.cities;
+                    }
+                })
+            }
+            showSearchResult(searchResult);
+            return searchResult;
+        })
+        .catch((error) =>
+            console.error("Unable to fetch data:", error));
 }
 
-const options = { timeZone: 'Australia/Sydney', hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' };
-const sydneyTime = new Date().toLocaleTimeString('en-US', options);
-console.log("Current time in Sydney:", sydneyTime);
+function showSearchResult(searchResult) {
+    searchResultDiv.innerHTML = '';
+    searchResult.forEach(item => {
+        const searchResEleDiv = document.createElement('div');
+        searchResEleDiv.classList.add('search-result-element');
+
+        searchResEleDiv.innerHTML = `
+        <img src="${item.imageUrl}" alt="${item.name}">
+        <h2>${item.name}</h2>
+        <p>${item.description}</p>
+        <button>Visit</button>
+      `;
+        searchResultDiv.appendChild(searchResEleDiv);
+    });
+}

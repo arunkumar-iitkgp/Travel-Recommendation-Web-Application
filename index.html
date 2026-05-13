@@ -1,55 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Travel</title>
-  <link rel="stylesheet" href="./travel_recommendation.css">
+    <title>Travel Bloom Page</title>
+    <link rel="stylesheet" href="travel_recommendation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
-  <style>
-    body {
-      background-image: url('pexels-pixabay-533851.jpg');
-      background-size:100%;
-      
-      
-    }
-    </style>
-   <nav>
-    <img src="plane_1.png" height="60px" margin="0px">
-    <h1>Travel</h1>
-<ul>
-  <li><a href="./index.html" id="home">Home </a></li>
-  
-  <li><a href="./about_us.html" id="aboutus">About Us </a></li> 
-  <li><a href="./travel_recommendation_contact.html" id="contact">Contact Us </a></li>
-  
-
-  <li><input type="text" id="destination" placeholder="Enter a destination or keyword">  </li>
-  <button class="search-btn" onclick="searchDestinations()">Search</button>
-  <button class="reset-btn" onclick="resetSearch()">Clear</button>
-  
-
-
-</ul>
-</nav>
-<div><h2>
-    EXPLORE<br>
-    DREAM<br>
-    DESTINATION</h2>
-    
-  
-    <p>It encourages exploration of unfamiliar territories, embracing diverse cultures and</p>
-    <p>landscapes, while pursuing the desired destination that captivates the heart and</p>  
-    <p>ignites a sense of wonder.</p> 
-    
-    <button id='booknow'> BOOK NOW</button>
-  </div>
-  <img src="social.jpeg" height="200px" id="socialmedia">
-
-  <div id="search-results-overlay" class="search-results-overlay">
-    <div id="search-results"></div>
-</div>
-  </div>
-<script src="./travel_recommendation.js"></script>
+<body>
+    <div class="navbar">
+        <div class="navbar">
+            <i class="fa fa-plane" id="nav-icon"></i>
+            <h2 id="app-name">Travel Bloom</h2>
+        </div>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="travel_recommendation_contact.html">Contact Us</a>
+        </div>
+        <div class="nav-right-section">
+            <input type="text" class="nav-input" id="nav-input-id" placeholder="Enter a destination or a keyword">
+            <button class="nav-button" id="nav-search-btn">Search</button>
+            <button class="nav-button" id="nav-clear-btn">Clear</button>
+        </div>
+    </div>
+    <div class="main-page">
+        <div class="social-media-main">
+            <div class="vertical-line">
+            </div>
+            <div class="social-media-section">
+                <i class="fa fa-twitter social-media-btn"></i>
+                <i class="fa fa-facebook social-media-btn"></i>
+                <i class="fa fa-instagram social-media-btn"></i>
+                <i class="fa fa-youtube social-media-btn"></i>
+            </div>
+        </div>
+        <div class="page-intro">
+            <h1 id="intro-title">EXPLORE <br> DREAM <br> DESTINATIONS</h1>
+            <p id="intro-desc"> It encourages exploration of unfamiliar<br> territories, embracing diverse cultures and<br> landscapes, while pursuing the desired<br> destination that captivates the heart and<br> ignites a sense of wonder.</p>
+            <button id="book-now-btn">BOOK NOW</button>
+        </div>
+        <div class="search-result" id="search-result-id">
+        </div>
+    </div>
+    <script src="travel_recommendation.js"></script>
 </body>
 </html>
